@@ -10,7 +10,9 @@ import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import SignInComponent from "./components/SignInComponent";
-
+import MakeOffer from "./components/MakeOffer.jsx";
+import Chatpage from "./pages/Chatpage.jsx";
+import Home2 from "./pages/Home2"
 function App() {
     const address = useAddress();
     const connectWithMetamask = useMetamask();
@@ -61,6 +63,19 @@ function App() {
                             <Navigate to="/signin" replace />
                         </SignedOut>
                     } />
+                    <Route path="/make-offer" element={
+                        <SignedIn>
+                            <MakeOffer />
+                        </SignedIn>
+                    } />
+                    <Route path="/Chat" element={
+                        <SignedIn>
+                            <Chatpage />
+                        </SignedIn>
+                    } />
+
+                    {/*For Testing Purpose*/}
+                    <Route path="/test" element={<Home2 />} />
                 </Routes>
                 <Footer />
             </div>
